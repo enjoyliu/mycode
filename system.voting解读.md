@@ -86,7 +86,7 @@ double weight = int64_t( (now() - (block_timestamp::block_timestamp_epoch /1000)
 
 ### voteproducer()
 
-**功能： **  更新被选中的生产者结点，即BP结点
+**功能：**  更新被选中的生产者结点，即BP结点
 
 **参数：** 
 
