@@ -1,16 +1,16 @@
-#system合约
+# system合约
 
-##system.governance.cpp
+## system.governance.cpp
 
 对函数进行介绍
 
-###gocstake()
+### gocstake()
 
 **功能**：进行抵押，在goc中可以通过抵押goc成为gn结点，从而提出提案
 
 传入参数 account_name payer 
 
-**过程：**
+**过程：** 
 
 首先进行验证，获取当前时间，以及可以抵押的最大限度-10e。
 

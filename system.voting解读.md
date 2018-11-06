@@ -12,7 +12,7 @@
 
 ### regproducer()
 
-**功能：**注册生产者帐号
+**功能：** 注册生产者帐号
 
 **参数：** 
 
@@ -33,7 +33,7 @@ uint16_t location
 
 ### upproducer()
 
-**功能：**注销生产者
+**功能： ** 注销生产者
 
 **参数：** 
 
@@ -51,7 +51,7 @@ const account_name producer,
 
 ### update_elected_producers()
 
-**功能：**更新被选中的生产者结点，即BP结点
+**功能：** 更新被选中的生产者结点，即BP结点
 
 **参数：** 
 
@@ -67,7 +67,7 @@ block_timestamp block_time
 
 ### stake2vote()
 
-**功能：**投票权重衰减的计算公式
+**功能： **投票权重衰减的计算公式
 
 **参数：** 
 
@@ -86,7 +86,7 @@ double weight = int64_t( (now() - (block_timestamp::block_timestamp_epoch /1000)
 
 ### voteproducer()
 
-**功能：**更新被选中的生产者结点，即BP结点
+**功能： **更新被选中的生产者结点，即BP结点
 
 **参数：** 
 
@@ -106,7 +106,7 @@ const std::vector<account_name>& producers
 
 ### update_votes()
 
-**功能：**voteproducer函数中更新票数的具体过程
+**功能： **voteproducer函数中更新票数的具体过程
 
 **参数：** 
 
@@ -134,7 +134,7 @@ const std::vector<account_name>& producers
 
 ### regproxy()
 
-**功能：**注册一个账户为代理账户
+**功能：** 注册一个账户为代理账户
 
 **参数：** 
 
@@ -151,7 +151,7 @@ bool isproxy
 
 ### propagate_weight_change()
 
-**功能：**更新投票的权重
+**功能： ** 更新投票的权重
 
 **参数：** 
 
