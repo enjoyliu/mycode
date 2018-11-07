@@ -34,7 +34,7 @@
 
 **ECB (Electronic codebook)  ,电子密码本模式** 
 
-![1ECB](~/image/1ECB.jpg)
+![1ECB](https://github.com/weixiao619/mycode/1ECB.jpg)
 
 **优点：**
 
