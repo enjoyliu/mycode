@@ -54,7 +54,7 @@ Proposal是goc中特有的一种治理模式，用户可以支付一定的费用
 
 ### gocupprop()
 
-**功能：**更新提案的内容
+**功能：** 更新提案的内容
 
 **过程：**
 
@@ -66,11 +66,16 @@ Proposal是goc中特有的一种治理模式，用户可以支付一定的费用
 
 ### gocsetpstage()
 
-**功能：**设置提案的状态
+**功能：**  设置提案的状态
 
 **参数输入**：
 
-‘‘’ const account_name owner, uint64_t id, uint16_t stage, time start_time ‘’’
+~~~cpp
+const account_name owner, 
+uint64_t id, 
+uint16_t stage, 
+time start_time 
+~~~
 
 分别为拥有者的名称，提案的id，期望的阶段，该阶段的开始时间
 

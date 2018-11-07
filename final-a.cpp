@@ -71,7 +71,7 @@ int main() {int f=0;
     nwnode(node(1,k));
     nxt[id[node(1,MX)]] = id[node(1,k)];
     dp[id[node(1,k)]] = 1.0;
-    v.pb(node(1,k));
+    v.pb(node(1,k));/Volumes/GoLand
     add(id[node(1,MX)],id[node(1,k)],1.0);
 
     nwnode(node(0,0));
