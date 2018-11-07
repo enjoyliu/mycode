@@ -52,7 +52,7 @@
 
 **CBC(Clipher-block chaining )，密码分组链接模式** 
 
-![2CBC](https://github.com/weixiao619/mycode/tree/master/image/2CBC.jpg)
+![2CBC](https://raw.githubusercontent.com/weixiao619/mycode/master/image/2CBC.jpg)
 
 图中IV为初始化向量。
 
@@ -70,11 +70,11 @@
 
 当取AES作为加密的分组密码时，称为基于AES的CBC-MAC,若需要产生认证码的消息为x，加密的AES密钥为k，则生成加解密的过程如下图所示
 
-![image-20181107204036868](https://github.com/weixiao619/mycode/tree/master/image/cbce.png)
+![image-20181107204036868](https://raw.githubusercontent.com/weixiao619/mycode/master/image/cbce.png)
 
 
 
-![FB8E2A6A3FBB60FDFED5004F2240B7FF](https://github.com/weixiao619/mycode/tree/master/image/cbcd.png)
+![FB8E2A6A3FBB60FDFED5004F2240B7FF](https://raw.githubusercontent.com/weixiao619/mycode/master/image/cbcd.png)
 
 
 
