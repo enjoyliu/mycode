@@ -18,13 +18,43 @@
 
 
 
-## 单向散列函数实现
+## 单向hash函数实现
 
 
 
 ![170101_Zo2o_1469576](/Users/liuyijiang/Downloads/170101_Zo2o_1469576.png)
 
-用单向hsah函数加密的消息认证码又被称为HMAC(Hash Message Authentication Code),如上图所示，实现过程较为简单对要传输的消息加上一个通信双方共享的密钥，然后作一次hash运算，得到一个MAC值。传输消息时，连同MAC值一起发送给接收放，接收方收到信息后，自己再对信息作一次相同的hash运算得到另一个MAC值，与发送方传来的进行比对，若有差异则说明消息被篡改。
+
+
+上图是MAC算法的的加密过程, 如上图所示，实现过程较为简单对要传输的消息加上一个通信双方共享的密钥，然后作一次hash运算，得到一个MAC值。传输消息时，连同MAC值一起发送给接收放，接收方收到信息后，自己再对信息作一次相同的hash运算得到另一个MAC值，与发送方传来的进行比对，若有差异则说明消息被篡改。
+
+而MAC函数用单项hash函数加密时，MAC被称为HMAC(Hash Message Authentication Code).
+
+[RFC2104关于HMAC的定义](https://www.ietf.org/rfc/rfc2104.txt)
+
+这里对其进行简要介绍
+
+HMAC (*k*,*m*) = H ( (*k* XOR opad ) + H( (*k* XORipad ) + *m* ) )
+
+其中
+
+H 是一个Hash函数, 比如, MD5, SHA-1and SHA-256，
+
+*k* 是一个密钥，从左到右用0填充到hash函数规定的block的长度，如果密钥长度大于block的长度，就对先对输入key作hash。
+
+*m* 是需要认证的消息,
+
+\+ 代表“连接”运算，
+
+XOR 代表异或运算，
+
+opad 是外部的填充常数(0x5c5c5c…5c5c, 一个block长度的十六进制常数constant)，
+
+ipad 是内部填充常数 (0x363636…3636,一个block长度的十六进制常数constant)。
+
+ 
+
+特定HMAC实现需要选择一个特定的hash函数。这些不同的HMAC实现通常标记为：HMAC-MD5,HMAC-SHA1, HMAC-SHA256等等. 论文 [Bellare+96]对HMAC的安全性作了全面的分析。
 
 ## 分组密码实现（基于AES组）
 
@@ -32,43 +62,7 @@
 
 分组加密的工作模式有ECB,CBC,CFB,OFB四种，其中CBC和ECB这两种模式比较常用。
 
-**ECB (Electronic codebook)  ,电子密码本模式** 
-
-![Image text](https://raw.githubusercontent.com/weixiao619/mycode/master/image/1ECB.jpg)
-
-**优点：**
-
-1.简单；
-
-2.有利于并行计算；
-
-3.误差不会被传送；
-
-**缺点：**
-
-1.不能隐藏明文的模式；
-
-2.可能对明文进行主动攻击；
-
-**CBC(Clipher-block chaining )，密码分组链接模式** 
-
-![2CBC](https://raw.githubusercontent.com/weixiao619/mycode/master/image/2CBC.jpg)
-
-图中IV为初始化向量。
-
-**优点：**
-
-1.不容易主动攻击，安全性好于ECB,适合传输长报文，是SSL,IPSec的标准
-
-**缺点：**
-
-1.不利于并行计算；
-
-2.误差传递；
-
-
-
-当取AES作为加密的分组密码时，称为基于AES的CBC-MAC,若需要产生认证码的消息为x，加密的AES密钥为k，则生成加解密的过程如下图所示
+当取AES作为MAC加密的分组密码时，一般采用CBC模式，所以通常称为基于AES的CBC-MAC,若需要产生认证码的消息为x，加密的AES密钥为k，则生成加解密的过程如下图所示
 
 ![image-20181107204036868](https://raw.githubusercontent.com/weixiao619/mycode/master/image/cbce.png)
 
