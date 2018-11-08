@@ -22,7 +22,7 @@
 
 
 
-![170101_Zo2o_1469576](/Users/liuyijiang/Desktop/mycode/image/MAC.png)
+![MAC](https://raw.githubusercontent.com/weixiao619/mycode/master/image/MAC.png)
 
 
 
