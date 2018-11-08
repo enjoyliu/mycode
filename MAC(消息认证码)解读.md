@@ -22,7 +22,7 @@
 
 
 
-![170101_Zo2o_1469576](/Users/liuyijiang/Downloads/170101_Zo2o_1469576.png)
+![170101_Zo2o_1469576](/Users/liuyijiang/Desktop/mycode/image/MAC.png)
 
 
 
