@@ -2,9 +2,27 @@
 
 ## producer_pay.cpp
 
+
+
+```cpp
+const int64_t  min_pervote_daily_pay = 100'0000;
+const int64_t  min_activated_stake   = 150'000'000'0000;  //15%激活
+const double   continuous_rate       = 0.04879;          // 5% annual rate
+const double   perblock_rate         = 0.0025;           // 0.25%
+const double   standby_rate          = 0.0075;           // 0.75%
+const uint32_t blocks_per_year       = 52*7*24*2*3600;   // the number of half seconds per year  --half seconds a block
+const uint32_t seconds_per_year      = 52*7*24*3600;
+const uint32_t blocks_per_day        = 2 * 24 * 3600;
+const uint32_t blocks_per_hour       = 2 * 3600;
+const uint64_t useconds_per_day      = 24 * 3600 * uint64_t(1000000);
+const uint64_t useconds_per_year     = seconds_per_year*1000000ll;
+```
+
+
+
+
+
  Producer_pay　主要是负责支付各种节点的goc奖励，goc每年增值5%，其中分配比例如下
-
-
 
 ```cpp
    const double   goc_bp_rate = 0.2;   // 1% for BP 
@@ -22,19 +40,20 @@ cpp文件中的以上常量规定了各种节点的收益比例。
 
 ### onblock()
 
-**功能：**  计算一些遗漏的区块
+**功能：**  启动区块
 
 **参数：**
 
 ~~~cpp
-void system_contract::onblock( block_timestamp timestamp, account_name producer )
+onblock( block_timestamp timestamp,
+    account_name producer )
 ~~~
 
 **过程：**
 
 1.进行验证后，判断当前的抵押数额是否小于最小数目，若小于则返回。（EOS有15%以上的投票活跃度时，主网才会激活）
 
-2.
+2.如果还没有开始产生收益，则初始化。
 
 3.检查该生产者是否创建了对应的对象，如果没有则创建一个
 
@@ -47,6 +66,12 @@ void system_contract::onblock( block_timestamp timestamp, account_name producer 
 **功能：**按之前规定的比例，新生区块后分配奖励，生成奖励每天一次，提案的奖励每周一次
 
 **参数：**
+
+```cpp
+claimrewards( const account_name& owner )
+```
+
+
 
 **过程：** 
 
