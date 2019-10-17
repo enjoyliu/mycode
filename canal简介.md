@@ -12,7 +12,7 @@ canal的工作原理依赖于数据库的主从复制原理
 
 ###MySQL主从复制原理
 
- ![mysql-master-slave](https://raw.githubusercontent.com/weixiao619/mycode/master/image/canal.png) 
+ ![mysql-master-slave](https://raw.githubusercontent.com/weixiao619/mycode/master/image/canal.jpg) 
 
 
 
